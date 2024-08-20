@@ -52,7 +52,7 @@ function PLPBanner(
                         </div>`;
 
         //$(bannerBody).insertAfter('.plp-categoryWrap:nth-child(' + positionNo + ')');
-        $(bannerBody).insertAfter('.plp-category').eq(positionNo - 1 );
+        $(bannerBody).insertAfter('.plp-category').eq(positionNo);
 
 
     function copyFunction(promoCodeType) {
