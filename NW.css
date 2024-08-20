@@ -1,1 +1,144 @@
-.module {}
+.activation-code-sub-container {
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    cursor: pointer;
+    /*width: max-content;*/
+    column-gap: 1rem;
+    color: #000;
+}
+
+.clip-board-container {
+    display: flex;
+}
+
+.activation-code {
+    max-width: 1200px;
+    color: #000;
+    font-size: 1.25rem;
+    font-weight: 400;
+    border-radius: 50px 0 0 50px;
+    background: #00000009;
+    width: max-content;
+    letter-spacing: .015625rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* line-height: 48px; */
+    height: 48px;
+    padding: 0 10px 0 20px;
+}
+
+.copy-to-clipboard-container {
+    background: #257A57;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px 0 5px;
+    border-radius: 0 50px 50px 0;
+}
+
+.coppied-to-clipboard-message {
+    letter-spacing: .015625rem;
+    font-size: 1rem;
+    width: max-content;
+    opacity: 0;
+    color: #000;
+    transition: .3s ease;
+}
+
+.copy-to-clipboard-container img {
+    filter: invert(1);
+}
+
+.darcheWrap {
+    width: 100%;
+}
+
+.darcheWrapInner {
+    width: 100%;
+    max-width: 996px;
+    margin: -40px auto 40px auto;
+    display: flex;
+    flex-direction: row;
+    color: black;
+    background: white;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 0 8px 0 rgba(23, 23, 26, .05), 0 2px 8px 0 rgba(23, 23, 26, .08);
+}
+
+.darcheImg {
+    padding: 0px;
+    width: 50%;
+    overflow: hidden;
+    aspect-ratio: 2 / 1;
+    display: flex;
+}
+
+img.darcheImgimg {
+    width: 100%;
+    height: fit-content;
+    align-self: end;
+}
+
+.darcheTxt {
+    align-self: center;
+    width: 50%;
+    padding: 0 40px;
+}
+
+.darcheTxtTitle {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: .015625rem;
+    line-height: 1.2;
+}
+
+.darcheTxtDescryption {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: .015625rem;
+    line-height: 1.5;
+}
+
+.darcheCodes {
+    text-align: center;
+}
+
+.darcheCodesCode {
+    font-size: larger;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .darcheImg,
+    .darcheTxt,
+    .darcheCodes {
+        width: 100%;
+    }
+
+    .darcheWrapInner {
+        flex-direction: column;
+    }
+
+    .darcheCodesCode {
+        text-align: center;
+    }
+
+    .darcheWrap {
+        padding: 0 15px;
+    }
+
+    .darcheImg {
+        aspect-ratio: 4 / 3;
+    }
+
+    .darcheTxt {
+        padding: 40px 20px;
+    }
+}
