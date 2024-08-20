@@ -40,35 +40,51 @@ function PLPBanner(
         }
     }
 
-                var bannerBody = `<div class="darcheWrap">
-                            <div class="darcheWrapInner">
-                            <div class="darcheImg">
-                            <img class="darcheImgimg" loading="lazy" alt="plp-banner-promo-image" src="${pImage}">
-                            </div>
-                            <div class="darcheTxt">
-                            <div class="darcheTxtTitle">${pTitle}</div>
-                            <div class="darcheTxtDescryption">${pDesc}</div><div class="darcheCodes"><div class="darcheCodesCode"><div class="activation-code-sub-container" onclick="copyFunction('${pCode}')"><div class="clip-board-container"><div class="activation-code" id="${pCode}">${pCode}</div><div class="copy-to-clipboard-container"><img width="25" heigh="25" alt="copy-to-clipboard" src="/ecom/medias/sys_master/public/28392225996830/copy.png"></div></div></div></div></div>
-                            </div>
-                        </div>`;
+    var bannerBody = `<div class="darcheWrap">
+                        <div class="darcheWrapInner">
+                        <div class="darcheImg">
+                        <img class="darcheImgimg" loading="lazy" alt="plp-banner-promo-image" src="${pImage}">
+                        </div>
+                        <div class="darcheTxt">
+                        <div class="darcheTxtTitle">${pTitle}</div>
+                        <div class="darcheTxtDescryption">${pDesc}</div><div class="darcheCodes"><div class="darcheCodesCode"><div class="activation-code-sub-container" onclick="copyFunction('${pCode}')"><div class="clip-board-container"><div class="activation-code" id="${pCode}">${pCode}</div><div class="copy-to-clipboard-container"><img width="25" heigh="25" alt="copy-to-clipboard" src="/ecom/medias/sys_master/public/28392225996830/copy.png"></div></div></div></div></div>
+                        </div>
+                    </div>`;
 
+    if ( technology === 'both' ){
         //$(bannerBody).insertAfter('.plp-categoryWrap:nth-child(' + positionNo + ')');
         $(bannerBody).insertAfter('.plp-categoryWrap[rowsorder="' + positionNo + '"]');
-
-
-    function copyFunction(promoCodeType) {
-        var range = document.createRange();
-        range.selectNodeContents(document.getElementById(promoCodeType));
-        window.getSelection().removeAllRanges();
-        window.getSelection().addRange(range);
-        document.execCommand("copy");
-        // GA4
-        window.gtmDataObject = window.gtmDataObject || [];
-        gtmDataObject.push({
-            event: 'local_event', //as is, do not change!!
-            event_raised_by: 'Local Market', //as is, do not change!!
-            local_event_category: 'local_promotion_tracking', //free to fill field, please use lower case
-            local_event_action: 'capsule_listing_page', //free to fill field, please use lower case
-            local_event_label: promoCodeType //free to fill field, please use lower case
-        });
+    } else if (technology === 'original'){
+        if( window.location.href.includes('original') ){
+            //$(bannerBody).insertAfter('.plp-categoryWrap:nth-child(' + positionNo + ')');
+            $(bannerBody).insertAfter('.plp-categoryWrap[rowsorder="' + positionNo + '"]');
+        }
+    } else if (technology === 'vertuo'){
+        if( window.location.href.includes('vertuo') ){
+            //$(bannerBody).insertAfter('.plp-categoryWrap:nth-child(' + positionNo + ')');
+            $(bannerBody).insertAfter('.plp-categoryWrap[rowsorder="' + positionNo + '"]');
+        }
+    } else {
+        console.log('wrong technology in function attributes');
     }
+    
+
+}
+
+//Function to copying promotion coses and pushing info about it to GA4
+function copyFunction(promoCodeType) {
+    var range = document.createRange();
+    range.selectNodeContents(document.getElementById(promoCodeType));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+    // GA4
+    window.gtmDataObject = window.gtmDataObject || [];
+    gtmDataObject.push({
+        event: 'local_event', //as is, do not change!!
+        event_raised_by: 'Local Market', //as is, do not change!!
+        local_event_category: 'local_promotion_tracking', //free to fill field, please use lower case
+        local_event_action: 'capsule_listing_page', //free to fill field, please use lower case
+        local_event_label: promoCodeType //free to fill field, please use lower case
+    });
 }
