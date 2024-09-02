@@ -129,10 +129,11 @@ function machinesCompartor (compSku){
         <div class="compInnerHead">Porównaj Ekspresy nespresso:</div>
         <div class="compInner">
         <div class="compItem">
-        <div class="compList compMachBody">
+        <div class="compList">
         <div class="compMachBodyImg"></div>
         <div class="ListName" AttrName="name">Model</div>
         <div class="ListName" AttrName="sku">SKU</div>
+        </div>
         </div>
         </div>
         </div>
