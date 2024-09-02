@@ -186,5 +186,3 @@ function machinesCompartor (compSku){
             })
     })
 }
-
-machinesCompartor ();
